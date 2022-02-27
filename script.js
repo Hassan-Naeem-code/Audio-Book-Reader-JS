@@ -19,6 +19,9 @@ async function setup() {
       const {
         data: { text },
       } = await worker.recognize(canvas);
+      speechSynthesis.speak(
+        new SpeechSynthesisUtterance(text.replace(/\s/g, " "))
+      );
       textElement.textContent = text;
       console.log("objetct", text);
     });
